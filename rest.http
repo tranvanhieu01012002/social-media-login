@@ -1,0 +1,5 @@
+POST    http://laravel-dev.vn/api/hello
+
+### 
+
+GET http://laravel-dev.vn/api/hello
