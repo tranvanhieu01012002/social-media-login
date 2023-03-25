@@ -17,13 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/form/{id?}", function (Request $request, $id1 = "Hieu") {
-    return "Hello mr Hieu at " . $id1;
+
+Route::get('login', function () {
+    return view('pages.login');
 });
-
-// Route::post("/form", function () {
-//     return redirect("https://laraveldaily.com/roadmap-learning-path");
-// })->name("login");
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
