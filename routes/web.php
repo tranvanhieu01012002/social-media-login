@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Auth\FacebookController;
 use App\Http\Controllers\Web\Auth\GoogleController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Http\Request;
@@ -24,3 +25,5 @@ Route::get('login', function () {
 
 Route::get('auth/redirect/google', [GoogleController::class, 'redirect'])->name('login.google.redirect');
 Route::get('callback', [GoogleController::class, 'callback'])->name('login.google.callback');
+Route::get('auth/redirect/facebook', [FacebookController::class, 'redirect'])->name('login.facebook.redirect');
+Route::get('callback/facebook', [FacebookController::class, 'callback'])->name('login.facebook.callback');

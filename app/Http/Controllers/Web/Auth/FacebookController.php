@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Contracts\User as ContractsUser;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleController extends Controller
+class FacebookController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     public function callback()
     {
         try {
-            $getInfo = Socialite::driver('google')->user();
+            $getInfo = Socialite::driver('facebook')->user();
             $this->createUser($getInfo);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -29,17 +29,17 @@ class GoogleController extends Controller
 
     public function createUser(ContractsUser $user)
     {
-        $userDB = User::where('provider_user_id', $user->user['sub'])->first();
+        $userDB = User::where('provider_user_id', $user->id)->first();
         if ($userDB) {
             Auth::login($userDB);
         } else {
             User::create([
-                'name' => $user->user['name'],
-                'email' => $user->user['email'],
+                'name' => $user->name,
+                'email' => $user->email,
                 'password' => 'Unknown',
-                'provider_user_id' => $user->user['sub'],
-                'provider_id' => 'google',
-                'avatar' => $user->user['picture']
+                'provider_user_id' => $user->id,
+                'provider_id' => 'facebook',
+                'avatar' => $user->avatar
             ]);
         }
     }

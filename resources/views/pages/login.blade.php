@@ -37,7 +37,8 @@
                         <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
 
                         <div class="social-login">
-                            <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                            <a href="{{ route('login.facebook.redirect') }}"
+                                class="facebook btn d-flex justify-content-center align-items-center">
                                 <span class="icon-facebook mr-3"></span> Login with Facebook
                             </a>
                             <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
