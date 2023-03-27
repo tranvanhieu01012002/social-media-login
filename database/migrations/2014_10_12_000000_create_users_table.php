@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('provider_user_id')->nullable();
+            $table->string('avatar', 500)->nullable();
             $table->string('provider_id')->nullable();
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
