@@ -43,7 +43,8 @@
                             <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
                                 <span class="icon-twitter mr-3"></span> Login with Twitter
                             </a>
-                            <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                            <a href="{{ route('login.google.redirect') }}"
+                                class="google btn d-flex justify-content-center align-items-center">
                                 <span class="icon-google mr-3"></span> Login with Google
                             </a>
                         </div>
